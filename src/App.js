@@ -1,8 +1,8 @@
-import './App.css';
+
 
 function App() {
-  return (
-    <div>
+  return ( 
+    <div className="app">
       <h2>Admin DashBoard</h2>
     </div>
   );
