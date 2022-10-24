@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { ColorModeContext, useMode } from "./theme";
 
 import DashBoard from "./scenes/dashboard";
+import Team from "./scenes/team";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 
@@ -20,6 +21,7 @@ function App() {
             <Topbar />
             <Routes>
               <Route path='/' element={ <DashBoard /> } />
+              <Route path='/team' element={ <Team /> } />
             </Routes>
           </main>
         </div>
