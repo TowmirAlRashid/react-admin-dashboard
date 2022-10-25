@@ -223,7 +223,7 @@ const Dashboard = () => {
 
         {/* ROW 3 */}
         <Box
-          gridColumn="span 4"
+          gridColumn={matches ? "span 6" : "span 4"}
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           p="30px"
@@ -249,7 +249,7 @@ const Dashboard = () => {
           </Box>
         </Box>
         <Box
-          gridColumn="span 4"
+          gridColumn={matches ? "span 6" : "span 4"}
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
         >
@@ -265,7 +265,7 @@ const Dashboard = () => {
           </Box>
         </Box>
         <Box
-          gridColumn="span 4"
+          gridColumn={matches ? "span 6" : "span 4"}
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           padding="30px"

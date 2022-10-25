@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
 import userLogo from '../../assets/user.png';
+
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
@@ -43,9 +45,16 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
 const Sidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const matches = useMediaQuery('(max-width:1200px)');
 
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
+
+  useEffect(() => {
+    if(matches) {
+        setIsCollapsed(isCollapsed);
+    }
+}, [matches, isCollapsed])
 
   return (
     <Box
@@ -65,6 +74,10 @@ const Sidebar = () => {
             "& .pro-menu-item.active": {
                 color: "#6870fa !important",
             },
+            // position: '-webkit-sticky',
+            minHeight: '100%',
+            position: '-webkit-sticky',
+            top: 0,
         }}
     >
         <ProSidebar collapsed={isCollapsed}>
