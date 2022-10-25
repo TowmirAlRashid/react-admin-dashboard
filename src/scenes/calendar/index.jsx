@@ -25,6 +25,8 @@ const Calendar = () => {
         const calendarApi = selected.view.calendar;
         calendarApi.unselect();
 
+        console.log(selected)
+
         if(title) {
             calendarApi.addEvent({
                 id: `${selected.dateStr} - ${title}`,
@@ -86,6 +88,50 @@ const Calendar = () => {
                 </Box>
 
                 {/* calendar */}
+                <Box flex="1 1 100%" ml="15px" sx={{
+                    "& .fc-list-day": {
+                        color: 'black',
+                        backgroundColor: colors.greenAccent[300]
+                    },
+                    "& .fc-list-event": {
+                        color: colors.greenAccent[700]
+                    }
+                }}>
+                    <FullCalendar 
+                        height="75vh"
+                        plugins={[
+                            dayGridPlugin,
+                            timeGridPlugin,
+                            listPlugin,
+                            interactionPlugin
+                        ]}
+                        headerToolbar={{
+                            left: "prev,next today",
+                            center: "title",
+                            right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth",
+                        }}
+                        initialView="dayGridMonth"
+                        editable={true}
+                        selectable={true}
+                        selectMirror={true}
+                        dayMaxEvents={true}
+                        select={handleDateClick}
+                        eventClick={handleEventClick}
+                        eventsSet={(events) => setCurrentEvents(events)}
+                        initialEvents={[
+                            {
+                              id: "12315",
+                              title: "All-day event",
+                              date: "2022-09-14",
+                            },
+                            {
+                              id: "5123",
+                              title: "Timed event",
+                              date: "2022-09-28",
+                            },
+                          ]}
+                    />
+                </Box>
             </Box>
         </Box>
     )
