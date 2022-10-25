@@ -10,6 +10,9 @@ import Form from "./scenes/profileForm";
 import Calendar from "./scenes/calendar";
 import Faq from "./scenes/faq";
 import Bar from "./scenes/bar";
+import Pie from "./scenes/pie";
+import Line from "./scenes/line";
+import Geography from "./scenes/geography";
 
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
@@ -35,9 +38,9 @@ function App() {
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/faq" element={<Faq />} />
               <Route path="/bar" element={<Bar />} />
-              {/* <Route path="/pie" element={<Pie />} /> */}
-              {/* <Route path="/line" element={<Line />} /> */}
-              {/* <Route path="/geography" element={<Geography />} /> */}
+              <Route path="/pie" element={<Pie />} />
+              <Route path="/line" element={<Line />} />
+              <Route path="/geography" element={<Geography />} />
             </Routes>
           </main>
         </div>
