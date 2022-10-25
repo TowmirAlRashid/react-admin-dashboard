@@ -13,7 +13,12 @@ import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
 
+import useMediaQuery from '@mui/material/useMediaQuery';
+
+
 const Dashboard = () => {
+  const matches = useMediaQuery('(max-width:1200px)');
+
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -48,7 +53,7 @@ const Dashboard = () => {
       >
         {/* ROW 1 */}
         <Box
-          gridColumn="span 3"
+          gridColumn={matches ? "span 6" : "span 3"}
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
@@ -67,7 +72,7 @@ const Dashboard = () => {
           />
         </Box>
         <Box
-          gridColumn="span 3"
+          gridColumn={matches ? "span 6" : "span 3"}
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
@@ -86,7 +91,7 @@ const Dashboard = () => {
           />
         </Box>
         <Box
-          gridColumn="span 3"
+          gridColumn={matches ? "span 6" : "span 3"}
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
@@ -105,7 +110,7 @@ const Dashboard = () => {
           />
         </Box>
         <Box
-          gridColumn="span 3"
+          gridColumn={matches ? "span 6" : "span 3"}
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
@@ -126,7 +131,7 @@ const Dashboard = () => {
 
         {/* ROW 2 */}
         <Box
-          gridColumn="span 8"
+          gridColumn={matches ? "span 12" : "span 8"}
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
         >
@@ -166,7 +171,7 @@ const Dashboard = () => {
           </Box>
         </Box>
         <Box
-          gridColumn="span 4"
+          gridColumn={matches ? "span 6" : "span 4"}
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           overflow="auto"
